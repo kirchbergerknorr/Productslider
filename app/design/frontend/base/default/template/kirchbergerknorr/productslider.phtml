@@ -1,0 +1,70 @@
+<?php
+/**
+ * Kirchbergerknorr Productslider
+ *
+ * @category    Kirchbergerknorr
+ * @package     Kirchbergerknorr_Productslider:
+ * @author      Benedikt Volkmer <bv@kirchbergerknorr.de>
+ * @copyright   Copyright (c) 2015 kirchbergerknorr GmbH (http://www.kirchbergerknorr.de)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php if($this->isActive()):?>
+<h3 class="sliderTitle"><?php echo $this->title;?></h3>
+<div class="sliderContainer">
+    <div class="kkProductslider">
+        <?php foreach($this->getProductCollection() as $_product): ?>
+            <div class="sliderItem">
+                <div class="twoColumns">
+                    <div class="image box">
+                        <a title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                           href="<?php echo $_product->getProductUrl() ?>" class="content-productlist-item-thumb-large"
+                           style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(80); ?>) no-repeat center center;">
+                        </a>
+                    </div>
+                    <div class="productInfo box">
+                        <div class="price">
+                            <?php echo $this->getPriceHtml($_product, false) ?>
+                        </div>
+                        <div class="addToCart">
+                            <a title="<?php echo $this->__('In den Warenkorb') ?>" href="<?php echo $this->getAddToCartUrl($_product)?>"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="productName">
+                    <a title="<?php echo $_product->getName();?>"
+                       href="<?php echo $_product->getProductUrl() ?>">
+                        <?php echo $_product->getName();?>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach;?>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+
+        var owl= jQuery(".kkProductslider").owlCarousel({
+
+            items : <?php echo $this->getShown();?>,
+            loop : true,
+            nav : false,
+            dots : false,
+            lazyLoad : true,
+            autoplay: true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            onInitialized : function(){
+                jQuery('.next').click(function(){
+                    owl.trigger('next.owl.carousel');
+                })
+                jQuery('.prev').click(function() {
+                    owl.trigger('prev.owl.carousel');
+                })
+            }
+        });
+    });
+
+</script>
+<?php endif;?>

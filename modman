@@ -1,0 +1,13 @@
+app/code/local/Kirchbergerknorr/Productslider/Block/Slider.php app/code/local/Kirchbergerknorr/Productslider/Block/Slider.php
+app/code/local/Kirchbergerknorr/Productslider/etc/config.xml app/code/local/Kirchbergerknorr/Productslider/etc/config.xml
+app/code/local/Kirchbergerknorr/Productslider/etc/system.xml app/code/local/Kirchbergerknorr/Productslider/etc/system.xml
+app/code/local/Kirchbergerknorr/Productslider/Helper/Data.php app/code/local/Kirchbergerknorr/Productslider/Helper/Data.php
+app/design/frontend/base/default/layout/kirchbergerknorr_productslider.xml app/design/frontend/base/default/layout/kirchbergerknorr_productslider.xml
+app/design/frontend/base/default/template/kirchbergerknorr/productslider.phtml app/design/frontend/base/default/template/kirchbergerknorr/productslider.phtml
+app/etc/modules/Kirchbergerknorr_Productslider.xml app/etc/modules/Kirchbergerknorr_Productslider.xml
+js/kirchbergerknorr/productslider/jquery-2.1.3.min.js js/kirchbergerknorr/productslider/jquery-2.1.3.min.js
+js/kirchbergerknorr/productslider/owl.carousel.js js/kirchbergerknorr/productslider/owl.carousel.js
+js/kirchbergerknorr/productslider/owl.carousel.min.js js/kirchbergerknorr/productslider/owl.carousel.min.js
+skin/frontend/base/default/css/kirchbergerknorr/productslider/owl.carousel.css skin/frontend/base/default/css/kirchbergerknorr/productslider/owl.carousel.css
+skin/frontend/base/default/css/kirchbergerknorr/productslider/owl.theme.css skin/frontend/base/default/css/kirchbergerknorr/productslider/owl.theme.css
+skin/frontend/base/default/css/kirchbergerknorr/productslider/productslider.css skin/frontend/base/default/css/kirchbergerknorr/productslider/productslider.css
