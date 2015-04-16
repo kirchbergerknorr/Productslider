@@ -31,8 +31,8 @@ Installation
 Usage
 -----
 
-*Configure the extension in magento backend
-*Call <?php echo $this->getChildHtml('kk_productslider');?> in cart.phtml
+1. Configure the extension in magento backend
+2. Call <?php echo $this->getChildHtml('kk_productslider');?> in cart.phtml
 
 
 Support
