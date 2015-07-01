@@ -15,28 +15,33 @@
     <div class="kkProductslider">
         <?php foreach($this->getProductCollection() as $_product): ?>
             <div class="sliderItem">
-                <div class="twoColumns">
-                    <div class="image box">
-                        <a title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
-                           href="<?php echo $_product->getProductUrl() ?>" class="content-productlist-item-thumb-large"
-                           style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(80); ?>) no-repeat center center;">
-                        </a>
-                    </div>
-                    <div class="productInfo box">
-                        <div class="price">
-                            <?php echo $this->getPriceHtml($_product, false) ?>
-                        </div>
-                        <div class="addToCart">
-                            <a title="<?php echo $this->__('In den Warenkorb') ?>" href="<?php echo $this->getAddToCartUrl($_product)?>"></a>
-                        </div>
-                    </div>
+                <div class="image">
+                    <a title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                       href="<?php echo $_product->getProductUrl() ?>" class="content-productlist-item-thumb-large"
+                       style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(80); ?>) no-repeat center center;">
+                    </a>
                 </div>
-
                 <div class="productName">
                     <a title="<?php echo $_product->getName();?>"
                        href="<?php echo $_product->getProductUrl() ?>">
                         <?php echo $_product->getName();?>
                     </a>
+                </div>
+                <div class="productInfo">
+                    <div class="priceBox <?php if($_product->getSpecialPrice()) echo 'specialPrice';?>">
+                        <?php echo $this->getPriceHtml($_product, false) ?>
+                    </div>
+                    <form action="<?php echo Mage::helper('checkout/cart')->getAddUrl($_product) ?>" method="post" class="product_list_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                        <?php echo $this->getBlockHtml('formkey') ?>
+                        <div class="no-display">
+                            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                            <input type="hidden" name="related_product" id="related-products-field" value="" />
+                            <?php echo $_product->getDefaultOptionHtml() ;?>
+                        </div>
+                        <div class="addToCart">
+                            <button type="submit" title="<?php echo $this->__('In den Warenkorb') ?>"></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         <?php endforeach;?>
@@ -52,7 +57,7 @@
             nav : false,
             dots : false,
             lazyLoad : true,
-            autoplay: true,
+            autoplay: false,
             autoplayTimeout:2000,
             autoplayHoverPause:true,
             onInitialized : function(){
